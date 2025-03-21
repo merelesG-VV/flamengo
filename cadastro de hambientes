@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Aeroporto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-size: 1.1em;
+            color: #333;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cadastro de Aeroporto</h1>
+    <form id="airportForm">
+        <div class="form-group">
+            <label for="airportName">Nome do Aeroporto:</label>
+            <input type="text" id="airportName" name="airportName" required placeholder="Digite o nome do aeroporto">
+        </div>
+        <div class="form-group">
+            <label for="city">Cidade:</label>
+            <input type="text" id="city" name="city" required placeholder="Digite a cidade onde o aeroporto está localizado">
+        </div>
+        <div class="form-group">
+            <label for="iataCode">refeitorio:</label>
+            <input type="text" id="iataCode" name="iataCode" required placeholder="Digite o código IATA">
+        </div>
+        <div class="form-group">
+            <label for="country">guiches:</label>
+            <input type="text" id="country" name="country" required placeholder="Digite o país onde o aeroporto está localizado">
+        </div>
+        <div class="form-group">
+            <label for="capacity">sala de espera para: (passageiros/dia)</label>
+            <input type="number" id="capacity" name="capacity" required placeholder="Digite a capacidade do aeroporto">
+        </div>
+        <div class="form-group">
+            <label for="runways"> Pistas:</label>
+            <input type="number" id="runways" name="runways" required placeholder="Digite o número de pistas">
+        </div>
+        <div class="form-group">
+            <button type="submit">Cadastrar Aeroporto</button>
+        </div>
+    </form>
+    <div id="message" class="message"></div>
+</div>
+
+<script>
+    document.getElementById('airportForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const airportName = document.getElementById('airportName').value;
+        const city = document.getElementById('city').value;
+        const iataCode = document.getElementById('iataCode').value;
+        const country = document.getElementById('country').value;
+        const capacity = document.getElementById('capacity').value;
+        const runways = document.getElementById('runways').value;
+
+        const message = `Aeroporto ${airportName} cadastrado com sucesso!\nCidade: ${city}\nCódigo IATA: ${iataCode}\nPaís: ${country}\nCapacidade: ${capacity} passageiros/dia\nNúmero de pistas: ${runways}`;
+        
+        document.getElementById('message').textContent = message;
+        document.getElementById('airportForm').reset();
+    });
+</script>
+
+</body>
+</html>
